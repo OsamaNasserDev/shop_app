@@ -14,14 +14,14 @@ class LoginModel {
 }
 
 class Data {
-  late final int id;
-  late final String name;
-  late final String email;
-  late final String phone;
-  late final String image;
-  late final int points;
-  late final int credit;
-  late final String token;
+  int? id;
+  String? name;
+  String? email;
+  String? phone;
+  String? image;
+  int? points;
+  int? credit;
+  String? token;
 
   Data.fromJson(Map<String, dynamic> json){
     id = json['id'];

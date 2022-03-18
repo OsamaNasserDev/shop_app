@@ -93,6 +93,7 @@ class HomeController extends Cubit<HomeStates> {
   }
 
 
+
   // Add Favorites Model
   AddFavoritesModel? addFavoritesModel ;
   addFavoritesProducts(int productId){
@@ -181,5 +182,29 @@ class HomeController extends Cubit<HomeStates> {
     );
 
   }
+
+  // update
+  updateUserData(context) {
+    emit(UpdateLoadingState());
+    DioHelper.putData(token: CacheHelper.readToken(),endPoint: "update-profile",data: {
+      "name": profileNameController.text.toString().trim(),
+      "phone":profilePhoneController.text.toString().trim(),
+      "email":profileEmailController.text.toString().trim(),
+    } ).then((value)  {
+      print("update value is ${value.data}");
+      var loginModel = LoginModel.fromJson(value.data);
+      if( loginModel.status  ){
+        getProfileDataModel();
+        emit(UpdateSuccessState());
+      }
+
+    }).catchError((error){
+      emit(UpdateFailState());
+      print('error is ${error.toString()}');});
+  }
+
+
+
+  var formKey = GlobalKey<FormState>(); // profile
 
 }

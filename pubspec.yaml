@@ -41,6 +41,7 @@ dependencies:
   flutter_screenutil: ^5.2.0
   dio:
   carousel_slider: ^4.0.0
+  motion_toast: ^2.1.3
 
 dev_dependencies:
   flutter_test:

@@ -19,6 +19,11 @@ class FavoritesSuccessModelData extends HomeStates {}
 class FavoritesFailModelData extends HomeStates {}
 
 
+class UpdateLoadingState extends HomeStates {}
+class UpdateSuccessState extends HomeStates {}
+class UpdateFailState extends HomeStates {}
+
+
 
 class GetFavoritesLoadingModelData extends HomeStates {}
 class GetFavoritesSuccessModelData extends HomeStates {}

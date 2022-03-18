@@ -39,6 +39,14 @@ class DioHelper{
       };
     return await dio!.post(endPoint,data: data);
   }
+  // put data
+  static Future<Response> putData({endPoint , data , lang ='ar' , token}) async {
+    dio!.options.headers=  {
+      'lang' : lang ,
+      'Authorization' : token ,
+    };
+    return await dio!.put(endPoint,data: data);
+  }
 
   // // Resister
   // // for post includes images

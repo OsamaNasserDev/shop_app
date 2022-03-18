@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_app/component/showMotionToast.dart';
 import 'package:shop_app/screens/home/controller.dart';
 import 'package:shop_app/screens/home/states.dart';
 
@@ -16,6 +17,8 @@ class HomeScreen extends StatelessWidget {
       child: BlocConsumer<HomeController, HomeStates>(
         listener: (context, state) {},
         builder: (context, state) {
+
+
           final controller = HomeController.get(
               context); // get object from cubit
           return Scaffold(
