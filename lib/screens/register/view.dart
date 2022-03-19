@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/component/defaultTextFormField.dart';
+import 'package:shop_app/component/methods.dart';
 import 'package:shop_app/component/showMotionToast.dart';
 import 'package:shop_app/helper/inputValidator.dart';
 import 'package:shop_app/screens/register/controller.dart';
 import 'package:shop_app/screens/register/states.dart';
+import 'package:shop_app/screens/sign_in/view.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -123,7 +125,9 @@ class RegisterScreen extends StatelessWidget {
                           children: [
                             const Text("have an account?"),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                navigateToAndR(context, const SignInScreen());
+                              },
                               child: const Text(
                                 "Sign In",
                                 style: TextStyle(

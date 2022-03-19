@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_app/component/methods.dart';
 import 'package:shop_app/component/showMotionToast.dart';
 import 'package:shop_app/screens/home/controller.dart';
+import 'package:shop_app/screens/home/search/view.dart';
 import 'package:shop_app/screens/home/states.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               context); // get object from cubit
           return Scaffold(
             appBar: AppBar(title: Text("Shop App"),
-            actions: [Icon(Icons.search)],),
+            actions: [IconButton(onPressed:(){NavigatorTo(context ,SearchScreen());} ,icon:  Icon(Icons.search,color: Colors.deepOrange,))],),
             body: Container(
                 width: double.infinity,
                 height: double.infinity,

@@ -36,9 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   smooth_page_indicator:
   shared_preferences:
-  flutter_bloc:
-  bloc:
-  flutter_screenutil: ^5.2.0
+  flutter_bloc: ^8.0.1
+  bloc: ^8.0.3
   dio:
   carousel_slider: ^4.0.0
   motion_toast: ^2.1.3
