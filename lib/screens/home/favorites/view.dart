@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,12 +36,13 @@ class FavoritesScreen extends StatelessWidget {
                             alignment: Alignment.bottomLeft,
                             children: [
                               controller.getFavoritesModel?.data!.data![index].product?.image != null?
-                              Image.network(
-                                "${controller.getFavoritesModel?.data!.data![index].product?.image}",
-                                fit: BoxFit.cover,
-                                width: 120,
+                              CachedNetworkImage(
+                                imageUrl: "${controller.getFavoritesModel?.data!.data![index].product?.image}",
                                 height: 120,
-
+                                width: 120,
+                                fit: BoxFit.cover,
+                                placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                                errorWidget: (context, url, error) => const Icon(Icons.error,size: 50),
                               ):Container(),
                               controller.getFavoritesModel?.data!.data![index].product?.discount != 0? Container(
                                 color: Colors.red,

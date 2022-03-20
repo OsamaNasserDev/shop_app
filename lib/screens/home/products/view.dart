@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,10 +32,17 @@ class ProductsScreen extends StatelessWidget {
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(20.0)),
                                 child: Center(
-                                    child: Image.network(
-                                        "${controller.homeModel?.data!.banners![index].image}",
-                                        fit: BoxFit.cover,
-                                        width: 1000)),
+                                    child:
+                                    CachedNetworkImage(
+                                      imageUrl: "${controller.homeModel?.data!.banners![index].image}",
+                                      //height: 200,
+                                      width: 1000,
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                                      errorWidget: (context, url, error) => const Icon(Icons.error,size: 50),
+                                    ),
+
+                                ),
                               );
                             },
                             options: CarouselOptions(
@@ -115,12 +123,15 @@ class ProductsScreen extends StatelessWidget {
                                     Stack(
                                       alignment: Alignment.bottomLeft,
                                       children: [
-                                        Image.network(
-                                            "${controller.homeModel?.data!.products![index].image}",
-                                            //fit: BoxFit.fill,
-                                            width: 1000,
+                                        CachedNetworkImage(
+                                          imageUrl: "${controller.homeModel?.data!.products![index].image}",
                                           height: 200,
+                                          width: 1000,
+
+                                          placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) => const Icon(Icons.error,size: 50),
                                         ),
+
                                         controller.homeModel?.data!.products![index].discount != 0? Container(
                                           color: Colors.red,
                                           child: const Text("DISCOUNT",style: TextStyle(color: Colors.white)),
